@@ -8,8 +8,8 @@ class Figure
 public:
     typedef std::pair<size_t, size_t> Cord;
 
-    enum Team { NONE = 0, WHITE = 1, BLACK = 2 };
-    enum Type { NO   = 0, KING  = 1, ROOK  = 2 };
+    enum Team { WHITE = 0, BLACK = 1, NONE  = 2 };
+    enum Type { NO    = 0, KING  = 1, ROOK  = 2 };
 
     Figure();
     Figure(Team team, Type type, Cord cord);
@@ -18,7 +18,7 @@ public:
     Type    type();
     Cord    cord();
 
-    void    move();
+    void    print() const;
 
 private:
     Team _team;

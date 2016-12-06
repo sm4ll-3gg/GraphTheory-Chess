@@ -11,12 +11,8 @@ public:
 
     void    set_chessboard_size(size_t size);
     void    add_figure(Figure* figure);
-    void    foo()
-    {
-        _chessboard.print();
-    }
 
-private: // methods
+public: // methods
     void    move();
 
 private:

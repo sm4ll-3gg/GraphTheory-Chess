@@ -5,8 +5,8 @@ Game::Game()
 {}
 
 Game::Game(Chessboard chessboard)
-    :_chessboard(chessboard),
-     count(0)
+    :count(0),
+      _chessboard(chessboard)
 {}
 
 void Game::set_chessboard_size(size_t size)
@@ -23,5 +23,15 @@ void Game::move()
 {
     bool step = count % 2; // 0 - ход белых, 1 - черных
 
+    std::list<Figure*> figures = _chessboard.figures();
+    for(auto it = figures.begin(); it != figures.end(); ++it)
+    {
+        Figure* figure = *it;
+        if( figure->team() == step )
+        {
+            figure->print();
+        }
+    }
 
+    count++;
 }

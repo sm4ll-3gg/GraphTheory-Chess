@@ -14,7 +14,10 @@ int main()
     Figure* blackKing = new Figure(Figure::Team::BLACK, Figure::Type::KING, Figure::Cord(3,2));
     game.add_figure(blackKing);
 
-    game.foo();
+    game.move();
+    std::cout << std::endl;
+    game.move();
+    std::cout << std::endl;
 
     std::cout << "Hello World!" << std::endl;
     return 0;
