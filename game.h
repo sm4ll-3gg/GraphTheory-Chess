@@ -1,7 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <chessboard.h>
+#include "chessboard.h"
+#include "tree.h"
 
 class Game
 {
@@ -9,16 +10,21 @@ public:
     Game();
     Game(Chessboard chessboard);
 
-    void    set_chessboard_size(size_t size);
-    void    add_figure(Figure* figure);
-
-public: // methods
+    void    start_game();
     void    move();
 
+private: // methods
+    void        change_condition(Figure* figure, const Chessboard& chessboard);
+
 private:
-    size_t      count; // Счетчик ходов
-    Chessboard  _chessboard;
-    //Tree
+    enum Condition { GAME = 0, MATE = 1, SALEMATE = 2 };
+
+    Node*       end; // последний ход
+
+    Condition   condition;
+    Tree        tree;
+
+    int temp;
 };
 
 #endif // GAME_H
