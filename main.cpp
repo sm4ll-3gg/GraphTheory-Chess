@@ -5,19 +5,30 @@
 
 int main()
 {
-    Chessboard chessboard(4);
-//    Figure* whiteKing = new Figure(Team::WHITE, Type::KING, Figure::Cord(0,0));
-//    chessboard.add_figure(whiteKing);
-//    Figure* whiteRook = new Figure(Team::WHITE, Type::ROOK, Figure::Cord(1,3));
-//    chessboard.add_figure(whiteRook);
-//    Figure* blackKing = new Figure(Team::BLACK, Type::KING, Figure::Cord(3,2));
-//    chessboard.add_figure(blackKing);
+    // Предполагается, что все введенные значения корректны!
 
-    Figure* whiteKing = new Figure(Team::WHITE, Type::KING, Figure::Cord(0,0));
+    int s = 0;
+
+    std::cout << "Введите размер поля: ";
+    std::cin >> s;
+    Chessboard chessboard(s);
+
+    int x = 0;
+    int y = 0;
+
+    std::cout << "Введите координаты x и y для белого короля:" << std::endl;
+    std::cin >> x >> y;
+    Figure* whiteKing = new Figure(Team::WHITE, Type::KING, Figure::Cord(x,y)); // 0 0
     chessboard.add_figure(whiteKing);
-    Figure* whiteRook = new Figure(Team::WHITE, Type::ROOK, Figure::Cord(0,3));
+
+    std::cout << "Введите координаты x и y для белой ладьи:" << std::endl;
+    std::cin >> x >> y;
+    Figure* whiteRook = new Figure(Team::WHITE, Type::ROOK, Figure::Cord(x,y)); // 0 3
     chessboard.add_figure(whiteRook);
-    Figure* blackKing = new Figure(Team::BLACK, Type::KING, Figure::Cord(1,2));
+
+    std::cout << "Введите координаты x и y для черного короля:" << std::endl;
+    std::cin >> x >> y;
+    Figure* blackKing = new Figure(Team::BLACK, Type::KING, Figure::Cord(x,y)); // 1 2
     chessboard.add_figure(blackKing);
 
 

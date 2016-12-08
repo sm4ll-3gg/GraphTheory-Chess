@@ -17,15 +17,10 @@ Game::Game(Chessboard chessboard)
 
 void Game::start_game()
 {
-    std::cout << std::endl << "============================" << std::endl
-              << "==========="<< 1 <<"-й Ход==========" << std::endl
-              << "============================" << std::endl << std::endl;
-
     while(condition == GAME)
     {
         move();
     }
-    std::cout << "Я НАШЕЛ!!!\n" << std::endl;
 
     std::stack<Node*> game;
     Node* temp = end;
@@ -49,14 +44,6 @@ void Game::move()
     Node* leaf = tree.take_leaf();
 
     bool course = leaf->count % 2; // 1 - ход белых, 0 - черных
-
-    if(temp != leaf->count)
-    {
-        std::cout << std::endl << "============================" << std::endl
-                  << "==========="<< leaf->count+1 <<"-й Ход==========" << std::endl
-                  << "============================" << std::endl << std::endl;
-        temp = leaf->count;
-    }
 
     if(leaf != nullptr)
     {
@@ -101,8 +88,6 @@ void Game::move()
                         node->chessboard = chessboard;
                         node->parent = leaf;
 
-                        //chessboard.print();
-
                         leaf->childs.push_back(node);
                         tree.push(node);
 
@@ -112,7 +97,6 @@ void Game::move()
                 }
             }
         }
-        std::cout << std::endl;
     }
     else
     {
